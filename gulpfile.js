@@ -45,8 +45,7 @@ gulp.task('copy-and-replace-medias', ['clean'], () => {
     keys.forEach((key) => {
         if (!medias[key] || !medias[key][env])
             throw new Error(`Environment "${env}" does not exists medias.json (media: ${key})`);
-
-        rv = rv.pipe(replace(key, medias[key][env]));
+        rv = rv.pipe(replace(new RegExp(`{{\\s*${key}\\s*}}`, 'ig'), medias[key][env]));
     });
 
     return rv.pipe(gulp.dest('dist/'));
