@@ -34,19 +34,23 @@ For `dev` environment, all the `{{KOALA_JPG}}` strings will be replaced with `./
 ### CSS & Javascript Usage
 Take a look at `src/index.html`:
 
-You should require external css files inside this block:
+You should require all external css files inside this block:
 ```html
 <!-- build:css -->
-<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/main.css">
 <!-- endbuild -->
 ```
 
-And for javascript files:
+And for all javascript files:
 ```html
 <!-- build:js -->
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/app.js"></script>
 <!-- endbuild -->
 ```
+
+Please note that there must be just one `<!-- build:css -->` and `<!-- build:js -->` blocks in index.html.
 
 ### Development
 For development just run `gulp`. Gulp will copy your source files, replaces media links and save them into `dist/` folder. Open up `dist/index.html` in your favorite browser.
